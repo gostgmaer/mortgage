@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
-    "@heroui/react": "^2.7.8",
-    "@heroui/select": "^2.4.19",
-    "@heroui/system": "^2.4.15",
-    "@heroui/theme": "^2.4.15",
+    "@heroui/react": "^2.8.0-beta.5",
+    "@heroui/select": "^2.4.20-beta.2",
+    "@heroui/system": "^2.4.16-beta.2",
+    "@heroui/theme": "^2.4.16-beta.2",
     "antd": "^5.25.1",
     "axios": "^1.9.0",
     "class-variance-authority": "^0.7.1",
@@ -33,10 +33,10 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.1.7",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
-    "tailwindcss": "^4",
+    "tailwindcss": "^4.1.7",
     "tw-animate-css": "^1.3.0"
   }
 }

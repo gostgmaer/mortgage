@@ -9,7 +9,7 @@ const AppLayout = ({ children }) => {
 
       <section className=" flex gap-2">
         <Sidebar></Sidebar>
-        <main  style={{ height: 'calc(100vh - 124px)',width:'calc(100vw - 100px)' }} className=" bg-[#fff]   rounded-xl">{children}</main>
+        <main  style={{ height: 'calc(100vh - 124px)',width:'calc(100vw - 100px)' }} className=" bg-white   rounded-xl">{children}</main>
       </section>
     </div>
   );
