@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+// import { HeroUIProvider } from '@heroui/react';
+import HeroUIWrapper from "@/components/basiclayout/HeroUIWrapper";
 // import { AuthProvider } from "@/context/AuthContext";
 
 const geistSans = Geist({
@@ -19,12 +21,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="light">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-      {children}
-       {/* <AuthProvider>{children}</AuthProvider> */}
+        <HeroUIWrapper>{children}</HeroUIWrapper>
+
+        {/* <AuthProvider>{children}</AuthProvider> */}
       </body>
     </html>
   );

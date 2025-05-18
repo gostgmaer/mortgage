@@ -103,34 +103,34 @@
 
 
 
-'use client';
+// 'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
-import keycloak from '../lib/keycloak';
+// import { createContext, useContext, useEffect, useState } from 'react';
+// import keycloak from '../lib/keycloak';
 
-const AuthContext = createContext();
+// const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
-  const [authenticated, setAuthenticated] = useState(false);
+// export const AuthProvider = ({ children }) => {
+//   const [authenticated, setAuthenticated] = useState(false);
 
-  useEffect(() => {
-    keycloak.init({
-      onLoad: 'login-required', // 👈 Forces login on first load
-      pkceMethod: 'S256',
-      redirectUri: window.location.origin,
-    }).then((auth) => {
-      setAuthenticated(auth);
-      if (auth) {
-        console.log('User is authenticated:', keycloak.tokenParsed);
-      }
-    });
-  }, []);
+//   useEffect(() => {
+//     keycloak.init({
+//       onLoad: 'login-required', // 👈 Forces login on first load
+//       pkceMethod: 'S256',
+//       redirectUri: window.location.origin,
+//     }).then((auth) => {
+//       setAuthenticated(auth);
+//       if (auth) {
+//         console.log('User is authenticated:', keycloak.tokenParsed);
+//       }
+//     });
+//   }, []);
 
-  return (
-    <AuthContext.Provider value={{ keycloak, authenticated }}>
-      {children}
-    </AuthContext.Provider>
-  );
-};
+//   return (
+//     <AuthContext.Provider value={{ keycloak, authenticated }}>
+//       {children}
+//     </AuthContext.Provider>
+//   );
+// };
 
-export const useAuth = () => useContext(AuthContext);
+// export const useAuth = () => useContext(AuthContext);
