@@ -125,3 +125,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+.sidebar-slider .ant-layout-sider-trigger{
+  position: relative !important;
+}
+.ant-layout-sider-children{
+  overflow: auto;
+}
