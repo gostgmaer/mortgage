@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 // import { HeroUIProvider } from '@heroui/react';
 import HeroUIWrapper from "@/components/basiclayout/HeroUIWrapper";
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 // import { AuthProvider } from "@/context/AuthContext";
 
 const geistSans = Geist({
@@ -25,7 +26,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <HeroUIWrapper>{children}</HeroUIWrapper>
+        <AntdRegistry>{children}</AntdRegistry>
 
         {/* <AuthProvider>{children}</AuthProvider> */}
       </body>
