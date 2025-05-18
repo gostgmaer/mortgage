@@ -10,9 +10,10 @@ export default function AccordionSection({
   title,
   subtitle,
   children,
-  defaultActive = true,
+  defaultActive = false,
   extraRightLabel = true,
-  footer = null, // footer inside panel
+  footer = null,
+  //active=[] // footer inside panel
 }) {
   const [activeKey, setActiveKey] = useState(defaultActive ? ['1'] : []);
 

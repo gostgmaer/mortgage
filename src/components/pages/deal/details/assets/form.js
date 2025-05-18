@@ -21,7 +21,7 @@ const { Text } = Typography;
 
 const AssetsFields = [
   {
-    name: "Owners",
+    name: "owners",
     label: "Owners",
     mode: "multiple",
     type: "select",
@@ -70,17 +70,18 @@ export default function AssetsAccordionForm() {
   const [show, setShow] = useState(false);
 
   const initialValues = {
-    incomeType: "Survivor Benefit Pension",
+    owners: "Survivor Benefit Pension",
     description: "",
-    incomePeriod: "Annual",
-    amount: "13000",
+    assetType: "Annual",
+    assetValue: "13000",
+    downpayment: "13000",
     currentSource: "No",
     startDate: dayjs("2020-10-30"),
     endDate: dayjs("2024-10-30"),
   };
 
   const handleFinish = (values) => {
-    console.log("Additional income saved:", values);
+    console.log("Assets saved:", values);
     // setEditable(false);
     handleCalcelButton();
   };
@@ -128,8 +129,8 @@ export default function AssetsAccordionForm() {
       disabled={!editable}
     >
       <AccordionSection
-        title="Linus’s additional income details"
-        subtitle="Total Income: - | Total Amount: $ 0/annually"
+        title="Assets details"
+        subtitle=""
         footer={footer}
       >
         <div className="mb-5">

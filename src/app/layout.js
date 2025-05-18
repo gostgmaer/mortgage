@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 // import { HeroUIProvider } from '@heroui/react';
-import HeroUIWrapper from "@/components/basiclayout/HeroUIWrapper";
+// import HeroUIWrapper from "@/components/basiclayout/HeroUIWrapper";
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 // import { AuthProvider } from "@/context/AuthContext";
 

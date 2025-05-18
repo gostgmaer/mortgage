@@ -70,6 +70,7 @@ export default function DealAccordionForm() {
       <AccordionSection
         title="Krishnaveni Shanmugapandi"
         subtitle="October 29th, 2039 | $800,000 | Purchase"
+        defaultActive={true}
         footer={footer}
       >
         <Row gutter={16}>

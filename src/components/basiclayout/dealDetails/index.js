@@ -18,7 +18,9 @@ function getItem(label, key, icon, children) {
   };
 }
 
-const DealDetailsSkeliton = ({ children }) => {
+const DealDetailsSkeliton = ({data, children }) => {
+  console.log(data);
+  
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -26,22 +28,22 @@ const DealDetailsSkeliton = ({ children }) => {
   return (
     <AppLayout>
       <Layout>
-        <section className=" bg-[#FAF3EC] flex items-center justify-between p-2.5 rounded mb-2">
+       { data.full.data.application_state.toLowerCase()=="cancel" || data.full.data.application_state.toLowerCase()=="hold"  && <section className=" bg-[#FAF3EC] flex items-center justify-between p-2.5 rounded mb-2">
           <div className="flex items-center gap-4">
             <TriangleAlert />{" "}
             <p>
-              This deal is currently On Hold. Do you want to restore the deal?
+              This deal is currently {data.full.data.application_state}. Do you want to restore the deal?
             </p>
           </div>
           <div>
             <Button>Restore</Button>
           </div>
-        </section>
+        </section>}
         <Layout style={{ height: "calc(100vh - 182px)" }}>
           <Leftnavigation></Leftnavigation>
           <Layout>
             <Content style={{ margin: "0 16px" }} className="rounded">
-              <DealTopbar></DealTopbar>
+              <DealTopbar data = {data.full.data}></DealTopbar>
               <Layout
                 style={{
                   padding: 24,

@@ -38,34 +38,17 @@ const statusIcons = {
   hold: <ClockCircleOutlined style={{ color: "#FFA500" }} />,
   cancel: <CloseCircleFilled style={{ color: "#F87171" }} />,
 };
-const DealTopbar = () => {
-  const [percent, setPercent] = useState(0);
-  const increase = () => {
-    setPercent((prevPercent) => {
-      const newPercent = prevPercent + 5;
-      if (newPercent > 100) {
-        return 100;
-      }
-      return newPercent;
-    });
-  };
-  const decline = () => {
-    setPercent((prevPercent) => {
-      const newPercent = prevPercent - 5;
-      if (newPercent < 0) {
-        return 0;
-      }
-      return newPercent;
-    });
-  };
+const DealTopbar = ({data}) => {
+  // const [percent, setPercent] = useState(0);
+ 
 
   const [open, setOpen] = useState(false);
-  const hide = () => {
-    setOpen(false);
-  };
+
   const handleOpenChange = (newOpen) => {
     setOpen(newOpen);
   };
+  const currentIndex = steps.findIndex(step => step.title === data.application_state);
+  // const percent = ((currentIndex + 1) / 11) * 100;
 
   return (
     <div className="bg-[#ECF1FC] p-4 flex justify-between">
@@ -119,16 +102,15 @@ const DealTopbar = () => {
         <Flex gap="small" className=" items-center">
           <Progress
             type="circle"
-            percent={(2 / 11) * 100}
+            percent={((currentIndex + 1) / 11) * 100}
             size={50}
-            format={() => "5/11"}
+            format={() =>`${currentIndex + 1}/${11}`}
             strokeColor="#00BFA5"
             strokeWidth={8}
           />
 
           <Popover
-            content={<PopOverContent></PopOverContent>}
-            title="Title"
+            content={<PopOverContent currentTitle={data.application_state} steps={steps}></PopOverContent>}
             trigger="click"
             placement="bottomRight"
             className=" flex flex-col"
@@ -153,12 +135,24 @@ const DealTopbar = () => {
 };
 
 export default DealTopbar;
+const PopOverContent = ({ currentTitle, steps }) => {
+  const currentIndex = steps.findIndex((step) => step.title === currentTitle);
 
-const PopOverContent = (params) => {
+  const stepsWithStatus = steps.map((step, index) => {
+    let status = "wait";
+    if (index < currentIndex) status = "finish";
+    else if (index === currentIndex) status = "process";
+
+    return {
+      ...step,
+      status,
+    };
+  });
+
   return (
     <div className="w-[300px] overflow-y-auto">
-      <Steps direction="vertical" status='finish' className=" overflow-auto"   current={1}>
-        {steps.map((step, index) => (
+      <Steps direction="vertical" current={currentIndex} >
+        {stepsWithStatus.map((step, index) => (
           <Step
             key={index}
             title={
@@ -168,17 +162,13 @@ const PopOverContent = (params) => {
                     ? "text-green-600 font-medium"
                     : step.status === "process"
                     ? "text-blue-600 font-medium"
-                    : step.status === "hold"
-                    ? "text-yellow-700 font-medium"
-                    : step.status === "cancel"
-                    ? "text-red-500 font-medium"
                     : "text-gray-400"
                 }`}
               >
                 {step.title}
               </span>
             }
-            icon={statusIcons[step.status]}
+            icon={statusIcons[step.status]} // You can define icons based on status if needed
           />
         ))}
       </Steps>
