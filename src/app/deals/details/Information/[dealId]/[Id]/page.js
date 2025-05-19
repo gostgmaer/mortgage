@@ -7,6 +7,7 @@ import dealService from "@/lib/network/services/dealService";
 // import { usePathname } from "next/navigation";
 import React from "react";
 import { cookies } from "next/headers";
+import MortgageAccordionForm from "@/components/pages/deal/details/mortgage";
 const Page = async ({ params, searchParams }) => {
   const cookieStore = await cookies();
   const token = cookieStore.get("access_token")?.value;
@@ -23,6 +24,7 @@ const Page = async ({ params, searchParams }) => {
           <DealAccordionForm></DealAccordionForm>
           <AdditionalIncomeAccordionForm></AdditionalIncomeAccordionForm>
           <AssetsAccordionForm></AssetsAccordionForm>
+          <MortgageAccordionForm></MortgageAccordionForm>
         </div>
       </DealDetailsSkeliton>
     </>

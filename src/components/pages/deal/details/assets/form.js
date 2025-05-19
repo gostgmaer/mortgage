@@ -70,7 +70,7 @@ export default function AssetsAccordionForm() {
   const [show, setShow] = useState(false);
 
   const initialValues = {
-    owners: "Survivor Benefit Pension",
+    owners: ["Survivor Benefit Pension"],
     description: "",
     assetType: "Annual",
     assetValue: "13000",

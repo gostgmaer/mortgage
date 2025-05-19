@@ -68,7 +68,15 @@ const items = [
     ),
   },
 ];
-const dataSource = dealList.data
+
+// const dataSourceWithKeys = originalData.map((item, index) => ({
+//   ...item,
+//   key: item.id || index, // Prefer `item.id` if available
+// }));
+const dataSource = dealList.data.map((item, index) => ({
+  ...item,
+  key: item.id || index, // Prefer `item.id` if available
+}));
 const TableLayout = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [loading, setLoading] = useState(false);

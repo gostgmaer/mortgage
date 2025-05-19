@@ -28,7 +28,7 @@ const DealDetailsSkeliton = ({data, children }) => {
   return (
     <AppLayout>
       <Layout>
-       { data.full.data.application_state.toLowerCase()=="cancel" || data.full.data.application_state.toLowerCase()=="hold"  && <section className=" bg-[#FAF3EC] flex items-center justify-between p-2.5 rounded mb-2">
+       { data.full.data.application_state?.toLowerCase()=="cancel" || data.full.data.application_state?.toLowerCase()=="hold"  && <section className=" bg-[#FAF3EC] flex items-center justify-between p-2.5 rounded mb-2">
           <div className="flex items-center gap-4">
             <TriangleAlert />{" "}
             <p>

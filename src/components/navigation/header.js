@@ -1,11 +1,14 @@
 "use client";
 
 // import { PlusIcon, CalculatorIcon, BellIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid';
-import { Button, Input, Popover, PopoverContent, PopoverTrigger } from "@heroui/react";
+import { Button,  Popover, PopoverContent, PopoverTrigger } from "@heroui/react";
 import Cookies from "js-cookie";
 import { BellIcon, CalculatorIcon, House, IdCard, PlusIcon, SearchIcon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+
+import { Input, Space } from 'antd';
+const { Search } = Input;
 
 export default function Header() {
   const [user, setUser] = useState(null);
@@ -36,27 +39,7 @@ export default function Header() {
       {/* Center: Search */}
       <div className="flex-1 mx-10">
         <div className="relative">
-          <Input
-            isClearable
-            classNames={{
-              label: "text-black/50 dark:text-white/90",
-              input: [
-                "bg-transparent",
-                "text-black/90 dark:text-white/90",
-                "placeholder:text-default-700/50 dark:placeholder:text-white/60",
-              ],
-              innerWrapper: ["bg-transparent", "flex"],
-
-              inputWrapper: [],
-            }}
-            // label="Search"
-            type="search "
-            placeholder="Search..."
-            radius="lg"
-            endContent={
-              <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none shrink-0" />
-            }
-          />
+           <Search placeholder="input search text"  enterButton />
         </div>
       </div>
 
